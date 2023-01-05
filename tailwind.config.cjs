@@ -8,12 +8,15 @@ module.exports = {
       },
       fontSize: {
         "4xll": "2.5rem",
+        0: "0rem",
       },
       fontFamily: {
         Inter: "Inter",
       },
       padding: {
         21: "5.125rem",
+        6321: "0.421rem",
+        checkbox: "0.2049rem",
       },
       colors: {
         "gray-700-figma": "#0D0D0D",

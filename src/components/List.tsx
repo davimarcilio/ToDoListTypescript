@@ -1,4 +1,5 @@
 import { EmptyList } from "./EmptyList";
+import { Item } from "./Item";
 import { ListHeaderStatus } from "./ListHeaderStatus";
 
 export function List() {
@@ -8,8 +9,9 @@ export function List() {
         <ListHeaderStatus switchColors text={"Tarefas criadas"} />
         <ListHeaderStatus text={"Concluídas"} />
       </header>
-      <div className="border-t border-gray-300-figma rounded-lg">
-        <EmptyList />
+      <div className="flex flex-col justify-center">
+        <Item />
+        {/* <EmptyList /> */}
       </div>
     </div>
   );
