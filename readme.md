@@ -9,6 +9,7 @@
 <p>👨‍💻 Desenvolvido com <a href="https://reactjs.org">Vite + React + TS</a></p>
 <p>🚀 Rápida estilização com <a href="https://tailwindcss.com">TailWind</a></p>
 <p>🎒 Salvando a lista com Local Storage</p>
+<p>📋 Gerenciamento de estados com <a href="https://react-redux.js.org/">React Redux</a></p>
 <hr>
 <h2>Responsividade para Web/Mobile</h2>
 
