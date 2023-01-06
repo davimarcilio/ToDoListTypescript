@@ -1,9 +1,9 @@
 import { Header } from "./components/Header";
 import More from "./assets/more.svg";
 import { List } from "./components/List";
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { useAppDispatch } from "./redux/hooks";
-import { addToList } from "./redux/todoSlice";
+import { addToList, setListFromLocalData } from "./redux/todoSlice";
 import { Item } from "./Item";
 import { v4 as uuidv4 } from "uuid";
 export function App() {
@@ -13,23 +13,31 @@ export function App() {
   function handleAddItemOnList(e: FormEvent) {
     e.preventDefault();
     dispatch(addToList(newItem));
+    setContent("");
   }
   function handleChangeContent(e: ChangeEvent<HTMLInputElement>) {
     setContent(e.target.value);
   }
+
+  useEffect(() => {
+    dispatch(setListFromLocalData(JSON.parse(localStorage.getItem("items")!)));
+  }, []);
+
   return (
     <div>
       <Header />
-      <main className="max-w-736  m-auto">
+      <main className="max-w-736 max-lg:px-3 max-lg:text-sm  m-auto">
         <form
           onSubmit={handleAddItemOnList}
           className=" w-full flex justify-center items-center gap-2 -mt-8"
         >
           <input
             onChange={handleChangeContent}
+            required
             className="flex-1 bg-gray-500-figma p-4 rounded-lg border box-border border-gray-700-figma focus:outline-none focus:border-purple-dark-figma text-gray-100-figma"
             type="text"
             placeholder="Adicione uma nova tarefa"
+            value={content}
           />
           <button
             className="bg-blue-dark-figma justify-center items-center gap-2 rounded-lg text-sm text-white flex p-4 font-bold hover:bg-blue-figma transition-colors"

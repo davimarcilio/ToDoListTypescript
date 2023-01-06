@@ -22,9 +22,11 @@ export function ListHeaderStatus({
         count={
           switchFunction
             ? listCount.length
-            : `${listCount.filter((item) => item.isDone === true).length} de ${
+            : listCount.length !== 0
+            ? `${listCount.filter((item) => item.isDone === true).length} de ${
                 listCount.length
               }`
+            : listCount.length
         }
       />
     </div>

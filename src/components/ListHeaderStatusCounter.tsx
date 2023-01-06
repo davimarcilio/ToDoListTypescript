@@ -1,5 +1,5 @@
 interface ListCounterProps {
-  count: Number;
+  count: Number | String;
 }
 
 export function ListCounter({ count }: ListCounterProps) {
