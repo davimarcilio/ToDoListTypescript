@@ -20,7 +20,11 @@ export function App() {
   }
 
   useEffect(() => {
-    dispatch(setListFromLocalData(JSON.parse(localStorage.getItem("items")!)));
+    if (!!localStorage.getItem("items")) {
+      dispatch(
+        setListFromLocalData(JSON.parse(localStorage.getItem("items")!))
+      );
+    }
   }, []);
 
   return (
